@@ -1,0 +1,9 @@
+node_modules/
+.agents/
+.claude/
+agent/
+skills-lock.json
+devpost/learner-profile.md
+shot*.png
+*.log
+.DS_Store
