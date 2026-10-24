@@ -2,6 +2,8 @@
 
 One bill. One date. A number for each day.
 
+**[Open the live demo](https://kaminariouji.github.io/pace/?demo=1)** · **[Watch the 62-second demo](https://kaminariouji.github.io/pace/pace-demo.mp4)**
+
 Most money apps count the days down. Pace tells you what **today** has to carry, and whether you are ahead or behind at this hour.
 
 ## Run it
