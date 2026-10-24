@@ -26,8 +26,11 @@ function seedDemo() {
 }
 
 let bill = load();
-if (!bill && new URLSearchParams(location.search).has('demo')) {
+const demoParam = new URLSearchParams(location.search).get('demo');
+if (!bill && demoParam) {
   bill = seedDemo();
+  if (demoParam === 'ahead') bill.entries.push({ id: 'd4', amount: 220, at: new Date().toISOString(), note: 'retainer' });
+  if (demoParam === 'done') bill.entries.push({ id: 'd4', amount: 460, at: new Date().toISOString(), note: 'final invoice' });
   localStorage.setItem(KEY, JSON.stringify(bill));
 }
 
@@ -90,7 +93,10 @@ function render() {
   const v = $('verdict');
   v.className = 'verdict ' + st.key;
   if (st.key === 'done') {
-    v.textContent = 'Covered. ' + money(got - bill.amount) + ' over the bill, with ' + days + ' days to spare.';
+    const over = got - bill.amount;
+    v.textContent = over > 0
+      ? 'Covered. ' + money(over) + ' over the bill, with ' + days + ' days to spare.'
+      : 'Covered exactly, with ' + days + ' days to spare.';
   } else if (st.key === 'behind') {
     v.textContent = 'Behind by ' + behind.toFixed(1) + ' days. Today should have carried ' + money(expected) + '; it has carried ' + money(got) + '.';
   } else if (st.key === 'ahead') {

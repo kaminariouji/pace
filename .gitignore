@@ -5,5 +5,16 @@ agent/
 skills-lock.json
 devpost/learner-profile.md
 shot*.png
+v*.png
+rec*.png
+state-*.png
+frames-rec/
+seg?.mp4
+concat.txt
+cap*.txt
+*.ttf
+record.mjs
+shots.mjs
+build-video.mjs
 *.log
 .DS_Store
